@@ -1,0 +1,12 @@
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\bin\Debug\net6.0\POS.Utilities.deps.json
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\bin\Debug\net6.0\POS.Utilities.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\bin\Debug\net6.0\POS.Utilities.pdb
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\POS.Utilities.csproj.AssemblyReference.cache
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\POS.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\POS.Utilities.AssemblyInfoInputs.cache
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\POS.Utilities.AssemblyInfo.cs
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\POS.Utilities.csproj.CoreCompileInputs.cache
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\POS.Utilities.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\refint\POS.Utilities.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\POS.Utilities.pdb
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Utilities\obj\Debug\net6.0\ref\POS.Utilities.dll

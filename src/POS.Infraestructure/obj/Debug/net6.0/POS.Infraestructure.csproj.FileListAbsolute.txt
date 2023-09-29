@@ -1,0 +1,17 @@
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\bin\Debug\net6.0\POS.Infraestructure.deps.json
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\bin\Debug\net6.0\POS.Infraestructure.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\bin\Debug\net6.0\POS.Infraestructure.pdb
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\bin\Debug\net6.0\POS.Domain.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\bin\Debug\net6.0\POS.Utilities.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\bin\Debug\net6.0\POS.Domain.pdb
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\bin\Debug\net6.0\POS.Utilities.pdb
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\POS.Infraestructure.csproj.AssemblyReference.cache
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\POS.Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\POS.Infraestructure.AssemblyInfoInputs.cache
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\POS.Infraestructure.AssemblyInfo.cs
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\POS.Infraestructure.csproj.CoreCompileInputs.cache
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\POS.Infraestructure.csproj.CopyComplete
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\POS.Infraestructure.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\refint\POS.Infraestructure.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\POS.Infraestructure.pdb
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Infraestructure\obj\Debug\net6.0\ref\POS.Infraestructure.dll
