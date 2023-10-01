@@ -1,0 +1,7 @@
+{
+  "POS.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Api",
+  "POS.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Application",
+  "POS.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Domain",
+  "POS.Infraestructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Infraestructure",
+  "POS.Utilities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Utilities"
+}
