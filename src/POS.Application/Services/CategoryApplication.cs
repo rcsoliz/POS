@@ -103,7 +103,7 @@ namespace POS.Application.Services
             if (response.Data)
             {
                 response.IsSuccess = true;
-                response.Message = ReplyMessage.MESSAGE_QUERY;
+                response.Message = ReplyMessage.MESSAGE_SAVE;
             }
             else
             {
@@ -131,7 +131,7 @@ namespace POS.Application.Services
             if (response.Data)
             {
                 response.IsSuccess = true;
-                response.Message= ReplyMessage.MESSAGE_QUERY;
+                response.Message= ReplyMessage.MESSAGE_UPDATE;
             }
             else
             {
