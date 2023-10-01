@@ -4,29 +4,24 @@ using POS.Infraestructure.Commons.Bases.Request;
 using POS.Infraestructure.Commons.Bases.Response;
 using POS.Infraestructure.Persistences.Contexts;
 using POS.Infraestructure.Persistences.Interfaces;
-using POS.Utilities.Static;
 
 namespace POS.Infraestructure.Persistences.Repositories
 {
     public class CategoryRepository: GenericRepository<Category>,
         ICategoryRepository
     {
-        private readonly POSContext _context;
+       // private readonly POSContext _context;
 
-        public CategoryRepository(POSContext context)
-        {
-            _context = context;
-        }
+        public CategoryRepository(POSContext context): base(context){}
 
         public async Task<BaseEntityResponse<Category>> ListCategories(BaseFiltersRequest filters)
         {
             var response = new BaseEntityResponse<Category>();
 
-            var categories = (from c in _context.Categories
-                              where c.AuditDeleteUser == null && c.AuditDeleteDate == null
-                              select c).AsNoTracking().AsQueryable();
+            var categories = GetEntityQuery(x => x.AuditDeleteUser == null && x.AuditDeleteDate == null);
 
-            if(filters.NumFilter is not null && !string.IsNullOrEmpty(filters.TextFilter))
+
+            if (filters.NumFilter is not null && !string.IsNullOrEmpty(filters.TextFilter))
             {
                 switch(filters.NumFilter) 
                 {
@@ -50,7 +45,7 @@ namespace POS.Infraestructure.Persistences.Repositories
                     && x.AuditCreateDate <= Convert.ToDateTime(filters.EndDate).AddDays(1));
             }
 
-            if (filters.Sort is null) filters.Sort = "CategoryId";
+            if (filters.Sort is null) filters.Sort = "Id";
 
             response.TotalRecords = await categories.CountAsync();
 
@@ -58,6 +53,8 @@ namespace POS.Infraestructure.Persistences.Repositories
 
             return response;
         }
+       
+        /*
         public async Task<IEnumerable<Category>> ListSelectCategories()
         {
             var category = await _context.Categories.
@@ -109,5 +106,7 @@ namespace POS.Infraestructure.Persistences.Repositories
             var recordsAffected = await _context.SaveChangesAsync();
             return recordsAffected > 0;
         }
+
+        */
     }
 }
