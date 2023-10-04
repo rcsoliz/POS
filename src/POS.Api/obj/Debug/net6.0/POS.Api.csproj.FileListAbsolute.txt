@@ -10,6 +10,7 @@ D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\AutoMapper.Extensio
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\Azure.Core.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\Azure.Storage.Blobs.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\Azure.Storage.Common.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\BCrypt.Net-Next.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\FluentValidation.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

@@ -416,6 +416,17 @@
           "lib/netstandard2.0/Azure.Storage.Common.dll": {}
         }
       },
+      "BCrypt.Net-Next/4.0.3": {
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.0.3.0"
+          }
+        },
+        "compile": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {}
+        }
+      },
       "coverlet.collector/3.1.2": {},
       "FluentValidation/11.2.0": {
         "runtime": {
@@ -2307,6 +2318,7 @@
           "AutoMapper": "11.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Azure.Storage.Blobs": "12.13.0",
+          "BCrypt.Net-Next": "4.0.3",
           "FluentValidation.AspNetCore": "11.2.1",
           "POS.Domain": "1.0.0",
           "POS.Infraestructure": "1.0.0",
@@ -4132,6 +4144,13 @@
       "sha512": "sha512-Ms0XsZ/D9Pcudfbqj+rWeCkhx/ITEq8isY0jkor9JFmDAEHsItFa2XrWkzP3vmJU6EsXQrk4snH63HkW/Jksvg==",
       "path": "azure.storage.common/12.12.0",
       "hashPath": "azure.storage.common.12.12.0.nupkg.sha512"
+    },
+    "BCrypt.Net-Next/4.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "path": "bcrypt.net-next/4.0.3",
+      "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
     },
     "coverlet.collector/3.1.2": {
       "type": "package",

@@ -33,7 +33,7 @@ namespace POS.Infraestructure.Persistences.Contexts
         public virtual DbSet<Sale> Sales { get; set; } = null!;
         public virtual DbSet<SaleDetail> SaleDetails { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
-        public virtual DbSet<User> UserRoles { get; set; } = null!;
+        public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
         public virtual DbSet<UsersBranchOffice> UsersBranchOffices { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
