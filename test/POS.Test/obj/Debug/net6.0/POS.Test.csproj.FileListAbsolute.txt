@@ -312,6 +312,7 @@ D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\BCrypt.Net-Next.d
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\FluentValidation.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Testing.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Microsoft.AspNetCore.TestHost.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll

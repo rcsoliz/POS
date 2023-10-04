@@ -15,6 +15,7 @@ D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\FluentValidation.dl
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\Humanizer.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
