@@ -349,6 +349,7 @@ D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Swashbuckle.AspNe
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Drawing.Common.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.IO.Hashing.dll
