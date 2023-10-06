@@ -5,7 +5,7 @@ using POS.Infraestructure.Commons.Bases.Request;
 
 namespace POS.Api.Controllers
 {
-    [Authorize]
+ //   [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProviderController : ControllerBase
@@ -24,5 +24,11 @@ namespace POS.Api.Controllers
             return Ok(response);
         }
 
+        [HttpGet("{providerId:int}")]
+        public async Task<IActionResult> ProviderById(int providerId)
+        {
+            var response = await _providerApplication.GetProviderById(providerId);
+            return Ok(response);
+        }
     }
 }
