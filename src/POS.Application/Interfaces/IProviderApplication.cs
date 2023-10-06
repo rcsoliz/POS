@@ -13,5 +13,6 @@ namespace POS.Application.Interfaces
 
         Task<BaseResponse<bool>> RegisterProvider(ProviderRequestDto requestDto);
         Task<BaseResponse<bool>> EdidtProviderAsync(int providerId, ProviderRequestDto requestDto);
+        Task<BaseResponse<bool>> RemoveProviderAsync(int providerId);
     }
 }

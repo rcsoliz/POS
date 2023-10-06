@@ -43,7 +43,14 @@ namespace POS.Api.Controllers
         public async Task<IActionResult> EditProvider(int providerId, [FromBody] ProviderRequestDto requestDto)
         {
             var response = await _providerApplication.EdidtProviderAsync(providerId, requestDto);
-            return BadRequest(response);
+            return Ok(response);
+        }
+
+        [HttpPut("Remove/{providerId:int}")]
+        public async Task<IActionResult> RemoveProvider(int providerId)
+        {
+            var response = await _providerApplication.RemoveProviderAsync(providerId);
+            return Ok(response);
         }
     }
 }
