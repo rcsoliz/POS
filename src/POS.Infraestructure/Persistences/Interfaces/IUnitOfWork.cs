@@ -8,6 +8,7 @@ namespace POS.Infraestructure.Persistences.Interfaces
         ICategoryRepository Category { get; }
         IUserRepository User { get; }
         IAzureStorage Storage { get; }  
+        IProviderRepository Provider { get; }
 
         void SaveChages();
         Task SaveChangeAsync();
