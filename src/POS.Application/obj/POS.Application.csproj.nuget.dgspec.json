@@ -68,6 +68,10 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.2.1, )"
+            },
+            "WatchDog.NET": {
+              "target": "Package",
+              "version": "[1.3.2, )"
             }
           },
           "imports": [

@@ -10,6 +10,7 @@ using POS.Utilities.Static;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using WatchDog;
 using BC = BCrypt.Net.BCrypt;
 
 namespace POS.Application.Services
@@ -57,29 +58,40 @@ namespace POS.Application.Services
         public async Task<BaseResponse<bool>> RegisterUser(UserRequestDto requestDto)
         {
             var  response = new BaseResponse<bool>();
-            var account = _mapper.Map<User>(requestDto);
-            account.Password= BC.HashPassword(account.Password);
 
-            if(requestDto.Image is not null)
+            try
             {
-                account.Image = await _unitOfWork.Storage.SaveFile(
-                        AzureContainers.USERS,
-                        requestDto.Image
-                    );
-            }
+                var account = _mapper.Map<User>(requestDto);
+                account.Password = BC.HashPassword(account.Password);
 
-            response.Data = await _unitOfWork.User.RegisterAsync(account);
+                if (requestDto.Image is not null)
+                {
+                    account.Image = await _unitOfWork.Storage.SaveFile(
+                            AzureContainers.USERS,
+                            requestDto.Image
+                        );
+                }
 
-            if (response.Data)
-            {
-                response.IsSuccess = true;
-                response.Message = ReplyMessage.MESSAGE_SAVE;
+                response.Data = await _unitOfWork.User.RegisterAsync(account);
+
+                if (response.Data)
+                {
+                    response.IsSuccess = true;
+                    response.Message = ReplyMessage.MESSAGE_SAVE;
+                }
+                else
+                {
+                    response.IsSuccess = false;
+                    response.Message = ReplyMessage.MESSAGE_FAILED;
+                }
             }
-            else
+            catch (Exception ex)
             {
                 response.IsSuccess = false;
-                response.Message = ReplyMessage.MESSAGE_FAILED;
+                response.Message = ReplyMessage.MESSAGE_EXCEPTION;
+                WatchLogger.Log(ex.Message);
             }
+
             return response;
         }
 
