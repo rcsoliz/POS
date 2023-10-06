@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using POS.Application.Commons.Bases;
+using POS.Application.Dtos.Provider.Request;
 using POS.Application.Dtos.Provider.Response;
 using POS.Application.Interfaces;
+using POS.Domain.Entities;
 using POS.Infraestructure.Commons.Bases.Request;
 using POS.Infraestructure.Commons.Bases.Response;
 using POS.Infraestructure.Persistences.Interfaces;
@@ -60,6 +62,25 @@ namespace POS.Application.Services
             return response;
         }
 
+        public async Task<BaseResponse<bool>> RegisterProvider(ProviderRequestDto requestDto)
+        {
+            var response = new BaseResponse<bool>();
+            var provider =  _mapper.Map<Provider>(requestDto);
 
+            response.Data = await _unitOfWork.Provider.RegisterAsync(provider);
+
+            if (response.Data)
+            {
+                response.IsSuccess = true;
+                response.Message = ReplyMessage.MESSAGE_SAVE;
+            }
+            else
+            {
+                response.IsSuccess = false;
+                response.Message = ReplyMessage.MESSAGE_FAILED;
+            }
+
+            return response;
+        }
     }
 }
