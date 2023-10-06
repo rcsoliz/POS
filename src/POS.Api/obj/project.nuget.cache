@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "opgEgQIqbiAn5Cee3hUForv+cZ8+RtEoTuTvldwQWkI8KGJ/1+im5SZMaw0t7z7J47WI1KhQxQtb3MMS1xDa2w==",
+  "dgSpecHash": "Q1uSfME03GItHutRjIYRszXs7ZHIx7MgonjnfaYuliKx+JQY5fr2ATJC4DXu0DYJu+R4ulXJU2C9az3NaiJRjg==",
   "success": true,
   "projectFilePath": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Api\\POS.Api.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,7 @@
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.0\\microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

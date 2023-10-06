@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "nVEmQF5E/adRD2Wfm/DR8DpWKvKsMkezDOo65YU+tzdXfWDu7mkOKl0Q3mjWm+fUQRFwQ1rXDxoBzY6Fx9+kMA==",
+  "dgSpecHash": "vuT6EGsN2O2ZnvBU1w0voGxasFNbtIrbet3T+4POfPzDDbBg1oelSF7m16UEJIeyv7YrWJdBz+GBlFPehqTbtw==",
   "success": true,
   "projectFilePath": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\test\\POS.Test\\POS.Test.csproj",
   "expectedPackageFiles": [
@@ -69,6 +69,7 @@
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.3.2\\microsoft.testplatform.objectmodel.17.3.2.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.testplatform.testhost\\17.3.2\\microsoft.testplatform.testhost.17.3.2.nupkg.sha512",
+    "C:\\Users\\pc\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\pc\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
