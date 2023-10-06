@@ -12,5 +12,6 @@ namespace POS.Application.Interfaces
         Task<BaseResponse<ProviderResponseDto>> GetProviderById(int providerId);
 
         Task<BaseResponse<bool>> RegisterProvider(ProviderRequestDto requestDto);
+        Task<BaseResponse<bool>> EdidtProviderAsync(int providerId, ProviderRequestDto requestDto);
     }
 }
