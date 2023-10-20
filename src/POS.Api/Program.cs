@@ -1,6 +1,8 @@
+using Microsoft.Extensions.DependencyInjection;
 using POS.Api.Extensions;
 using POS.Application.Extensions;
 using POS.Infraestructure.Extensions;
+using POS.Utilities.AppSettings;
 using WatchDog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +19,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwagger(); // ENABLE AddSwagger EXTENSISONS SwaggerExtensions
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("GoogleSettings"));
 
 //configuration Cors
 builder.Services.AddCors(options =>

@@ -14,5 +14,9 @@
         public const string MESSAGE_VALIDATE = "Errores de validación.";
         public const string MESSAGE_FAILED = "Operación fallida.";
         public const string MESSAGE_EXCEPTION = "Hubo un error inesperado comunicarse con el administrador (robertoucbnh@gmail.com).";
+
+        public const string MESSAGE_GOOGLE_ERROR = "Su cuenta no se encuentra registra en el sistema";
+        public const string MESSAGE_AUTH_TYPE_GOOGLE = "Por favor ingrese con, la opción de google.";
+        public const string MESSAGE_AUTH_TYPE = "Su cuenta registrada en el sistema.";
     }
 }

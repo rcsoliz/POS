@@ -65,9 +65,13 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
-            "FluentValidation.AspNetCore": {
+            "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
-              "version": "[11.2.1, )"
+              "version": "[11.5.2, )"
+            },
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.60.0, )"
             },
             "WatchDog.NET": {
               "target": "Package",

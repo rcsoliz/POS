@@ -7,6 +7,6 @@ namespace POS.Application.Interfaces
     {
 
         Task<BaseResponse<bool>> RegisterUser(UserRequestDto requestDto);
-        Task<BaseResponse<string>> GenerateToken(TokenRequestDto token);
+       // Task<BaseResponse<string>> GenerateToken(TokenRequestDto token);
     }
 }

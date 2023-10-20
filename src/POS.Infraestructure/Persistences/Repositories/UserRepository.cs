@@ -14,12 +14,13 @@ namespace POS.Infraestructure.Persistences.Repositories
             _context = context;
         }
 
-        public async Task<User> AccountByUserName(string userName)
+        public async Task<User> UserByEmail(string email)
         {
-            var account = await _context.Users.AsNoTracking().FirstOrDefaultAsync(
-                x => x.UserName!.Equals(userName));
+            var user = await _context.Users.AsNoTracking()
+                .FirstOrDefaultAsync(
+                x => x.Email!.Equals(email));
             
-            return account!;
+            return user!;
         }
     }
 }
