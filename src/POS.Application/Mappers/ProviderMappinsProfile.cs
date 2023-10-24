@@ -18,6 +18,10 @@ namespace POS.Application.Mappers
                     x => x.MapFrom(y => y.State.Equals((int)StateTypes.Active) ? "Activo" : "Inactivo"))
                 .ReverseMap();
 
+            CreateMap<Provider, ProviderByIdResponseDto>()
+            .ForMember(x => x.ProviderId, x => x.MapFrom(y => y.Id))
+            .ReverseMap();
+
             CreateMap<BaseEntityResponse<Provider>, BaseEntityResponse<ProviderResponseDto>>()
                 .ReverseMap();
 

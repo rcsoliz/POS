@@ -24,12 +24,15 @@ namespace POS.Application.Extensions
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IGenerateExcelApplication, GenerateExcelApplication>();
 
             services.AddScoped<ICategoryApplication, CategoryApplication>();
             services.AddScoped<IUserApplication, UserApplication>();
             services.AddScoped<IProviderApplication, ProviderApplication>();
 
             services.AddScoped<IAuthApplication, AuthApplication>();
+            services.AddScoped<IDocumentTypeApplication, DocumentTypeApplication>();
+        
             
             services.AddWathcDog(configuration);
 

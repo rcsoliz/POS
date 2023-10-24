@@ -16,6 +16,8 @@ namespace POS.Infraestructure.Persistences.Repositories
 
         public IProviderRepository Provider {get; private set;}
 
+        public IDocumentTypeRepository DocumentType { get; private set; }
+
         public UnitOfWork(POSContext context, IConfiguration configuration)
         {
             _context = context;
@@ -23,6 +25,7 @@ namespace POS.Infraestructure.Persistences.Repositories
             User = new UserRepository(_context);
             Storage = new AzureStorage(configuration);
             Provider = new ProviderRepository(_context);
+            DocumentType = new DocumentTypeRepository(_context);
         }
 
         public void Dispose()

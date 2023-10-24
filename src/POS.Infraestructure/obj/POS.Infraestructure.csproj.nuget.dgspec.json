@@ -124,6 +124,10 @@
               "target": "Package",
               "version": "[12.18.0, )"
             },
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.102.0, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[6.0.0-preview.4.21253.5, )"

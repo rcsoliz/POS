@@ -53,9 +53,9 @@ namespace POS.Application.Services
             return response;
         }
 
-        public async Task<BaseResponse<ProviderResponseDto>> GetProviderById(int providerId)
+        public async Task<BaseResponse<ProviderByIdResponseDto>> GetProviderById(int providerId)
         {
-            var response = new BaseResponse<ProviderResponseDto>();
+            var response = new BaseResponse<ProviderByIdResponseDto>();
 
             try
             {
@@ -64,7 +64,7 @@ namespace POS.Application.Services
                 if (providers is not null)
                 {
                     response.IsSuccess = true;
-                    response.Data = _mapper.Map<ProviderResponseDto>(providers);
+                    response.Data = _mapper.Map<ProviderByIdResponseDto>(providers);
                     response.Message = ReplyMessage.MESSAGE_QUERY;
                 }
                 else

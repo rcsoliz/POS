@@ -310,10 +310,18 @@ D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Azure.Storage.Blo
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Azure.Storage.Common.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\BCrypt.Net-Next.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\ClosedXML.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Dapper.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\ExcelNumberFormat.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\FluentValidation.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Apis.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Apis.Auth.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Apis.Core.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Protobuf.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Irony.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\K4os.Compression.LZ4.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\K4os.Hash.xxHash.dll
@@ -363,6 +371,7 @@ D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Newtonsoft.Json.d
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Npgsql.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\NuGet.Frameworks.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\SixLabors.Fonts.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -372,6 +381,7 @@ D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Diagnostic
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Drawing.Common.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.IO.Hashing.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.IO.Packaging.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.IO.Pipelines.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Memory.Data.dll
@@ -381,6 +391,7 @@ D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Security.C
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Security.Permissions.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\System.Windows.Extensions.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\WatchDog.dll
+D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\XLParser.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\cs\Microsoft.TestPlatform.CoreUtilities.resources.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\cs\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\de\Microsoft.TestPlatform.CoreUtilities.resources.dll
@@ -487,7 +498,3 @@ D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\obj\Debug\net6.0\refint\POS.Test.d
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\obj\Debug\net6.0\POS.Test.pdb
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\obj\Debug\net6.0\POS.Test.genruntimeconfig.cache
 D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\obj\Debug\net6.0\ref\POS.Test.dll
-D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Apis.dll
-D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
-D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Apis.Auth.dll
-D:\CNET\BackEnd\Sistema POS\POS\test\POS.Test\bin\Debug\net6.0\Google.Apis.Core.dll
