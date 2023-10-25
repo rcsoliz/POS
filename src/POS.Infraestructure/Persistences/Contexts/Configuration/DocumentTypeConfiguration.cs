@@ -8,6 +8,11 @@ namespace POS.Infraestructure.Persistences.Contexts.Configuration
     {
         public void Configure(EntityTypeBuilder<DocumentType> builder)
         {
+            builder.HasKey(e => e.Id);
+
+            builder.Property(e => e.Id)
+                .HasColumnName("DocumentTypeId");
+
             builder.Property(e => e.Abbreviation)
             .HasMaxLength(5)
             .IsUnicode(false);

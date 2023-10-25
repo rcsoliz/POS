@@ -2,6 +2,7 @@
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using POS.Application.Commons.Ordering;
 using POS.Application.Extensions.WatchDog;
 using POS.Application.Interfaces;
 using POS.Application.Services;
@@ -24,6 +25,10 @@ namespace POS.Application.Extensions
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+
+            services.AddTransient<IOrderingQuery, OrderingQuery>();
+
             services.AddScoped<IGenerateExcelApplication, GenerateExcelApplication>();
 
             services.AddScoped<ICategoryApplication, CategoryApplication>();

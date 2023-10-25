@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using POS.Application.Commons.Bases;
+using POS.Application.Commons.Bases.Response;
 using POS.Application.Dtos.DocumentType.Response;
 using POS.Application.Interfaces;
 using POS.Infraestructure.Persistences.Interfaces;
@@ -30,7 +30,7 @@ namespace POS.Application.Services
 
             try
             {
-                var documentType = await _unitOfWork.DocumentType.ListDocumentTypes();
+                var documentType = await _unitOfWork.DocumentType.GetSelctAsync();
                 
                 if(documentType is not null)
                 {

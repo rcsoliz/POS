@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
-using POS.Application.Commons.Bases;
+using POS.Application.Commons.Bases.Response;
 using POS.Application.Dtos.User.Request;
 using POS.Application.Interfaces;
 using POS.Domain.Entities;
+using POS.Infraestructure.FileStorage;
 using POS.Infraestructure.Persistences.Interfaces;
 using POS.Utilities.Static;
 using WatchDog;
@@ -16,14 +17,16 @@ namespace POS.Application.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IConfiguration _configuration;
-
-        public UserApplication(IUnitOfWork unitOfWork, 
-               IMapper mapper, 
-               IConfiguration configuration)
+        private readonly IAzureStorage _storage;
+        public UserApplication(IUnitOfWork unitOfWork,
+               IMapper mapper,
+               IConfiguration configuration,
+               IAzureStorage storage)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _configuration = configuration;
+            _storage = storage;
         }
 
         public async Task<BaseResponse<bool>> RegisterUser(UserRequestDto requestDto)
@@ -37,7 +40,7 @@ namespace POS.Application.Services
 
                 if (requestDto.Image is not null)
                 {
-                    account.Image = await _unitOfWork.Storage.SaveFile(
+                    account.Image = await _storage.SaveFile(
                             AzureContainers.USERS,
                             requestDto.Image
                         );
