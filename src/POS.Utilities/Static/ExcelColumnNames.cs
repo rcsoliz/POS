@@ -53,5 +53,22 @@
             return columnsProperties;
         }
         #endregion
+
+        #region ColumnDocumentTypes
+        public static List<(string ColumnName, string PropertyName)> GetColumnsDocumentTypes()
+        {
+            var columnsProperties = new List<(string ColumnName, string PropertyName)>
+            {
+                ("NOMBRE", "Name"),
+                ("CODIGO", "Code"),
+                ("ABREVIACIÓN", "Abbreviation"),
+                ("FECHA DE CREACIÓN", "AuditCreateDate"),
+                ("ESTADO", "StateDocumentType")
+            };
+
+            return columnsProperties;
+        }
+        #endregion
+
     }
 }
