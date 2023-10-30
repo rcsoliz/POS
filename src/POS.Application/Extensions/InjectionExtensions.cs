@@ -36,9 +36,10 @@ namespace POS.Application.Extensions
             services.AddScoped<IProviderApplication, ProviderApplication>();
 
             services.AddScoped<IAuthApplication, AuthApplication>();
-            services.AddScoped<IDocumentTypeApplication, DocumentTypeApplication>();
-        
             
+            services.AddScoped<IDocumentTypeApplication, DocumentTypeApplication>();
+            services.AddScoped<IClientApplication, ClientApplication>();
+
             services.AddWathcDog(configuration);
 
             return services;

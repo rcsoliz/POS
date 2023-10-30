@@ -9,6 +9,7 @@ namespace POS.Infraestructure.Persistences.Interfaces
         IGenericRepository<Category> Category { get; }
         IGenericRepository<Provider> Provider { get; }
         IGenericRepository<DocumentType> DocumentType { get; }
+        IGenericRepository<Client> Client { get; }
         IUserRepository User { get; } 
 
         void SaveChages();

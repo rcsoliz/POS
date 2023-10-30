@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using POS.Application.Commons.Bases.Request;
 using POS.Application.Commons.Bases.Response;
 using POS.Application.Commons.Ordering;
-using POS.Application.Dtos.Provider.Request;
-using POS.Application.Dtos.Provider.Response;
+using POS.Application.Dtos.Client.Request;
+using POS.Application.Dtos.Client.Response;
 using POS.Application.Interfaces;
 using POS.Domain.Entities;
 using POS.Infraestructure.Persistences.Interfaces;
@@ -13,25 +13,25 @@ using WatchDog;
 
 namespace POS.Application.Services
 {
-    public class ProviderApplication : IProviderApplication
+    public class ClientApplication: IClientApplication
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IOrderingQuery _orderingQuery;
-        public ProviderApplication(IUnitOfWork unitOfWork, IMapper mapper, IOrderingQuery orderingQuery)
+
+        public ClientApplication(IUnitOfWork unitOfWork, IMapper mapper, IOrderingQuery orderingQuery)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _orderingQuery = orderingQuery;
         }
-
-        public async Task<BaseResponse<IEnumerable<ProviderResponseDto>>> ListProviders(BaseFiltersRequest filters)
+        public async Task<BaseResponse<IEnumerable<ClientResponseDto>>> ListClients(BaseFiltersRequest filters)
         {
-            var response = new BaseResponse<IEnumerable<ProviderResponseDto>>();
+            var response = new BaseResponse<IEnumerable<ClientResponseDto>>(); 
 
             try
             {
-                var providers =  _unitOfWork.Provider
+                var clients = _unitOfWork.Client
                     .GetAllQueryable()
                     .Include(x => x.DocumentType)
                     .AsQueryable();
@@ -41,33 +41,35 @@ namespace POS.Application.Services
                     switch (filters.NumFilter)
                     {
                         case 1:
-                            providers = providers.Where(x => x.Name.Contains(filters.TextFilter)); break;
+                            clients = clients.Where(x => x.Name!.Contains(filters.TextFilter)); break;
+                        
                         case 2:
-                            providers = providers.Where(x => x.Email.Contains(filters.TextFilter)); break;
+                            clients = clients.Where(x => x.Email!.Contains(filters.TextFilter)); break; 
+
                         case 3:
-                            providers = providers.Where(x => x.DocumentNumber.Contains(filters.TextFilter)); break;
+                            clients = clients.Where(x => x.DocumentNumber!.Contains(filters.TextFilter));break;
+
                     }
                 }
 
                 if (filters.StateFilter is not null)
                 {
-                    providers = providers.Where(x => x.State.Equals(filters.StateFilter));
+                    clients = clients.Where(x => x.State.Equals(filters.StateFilter));
                 }
 
                 if (filters.StartDate is not null && filters.EndDate is not null)
                 {
-                    providers = providers.Where(x =>
+                    clients = clients.Where(x =>
                         x.AuditCreateDate >= Convert.ToDateTime(filters.StartDate) &&
                         x.AuditCreateDate <= Convert.ToDateTime(filters.EndDate).AddDays(1));
                 }
-
                 if (filters.Sort is null) filters.Sort = "Id";
 
-                var items = await _orderingQuery.Ordering(filters, providers, !(bool)filters.Download!).ToListAsync();
+                var items = await _orderingQuery.Ordering(filters, clients, !(bool)filters.Download!).ToListAsync();
 
                 response.IsSuccess = true;
-                response.TotalRecords = await providers.CountAsync();
-                response.Data = _mapper.Map<IEnumerable<ProviderResponseDto>>(items);
+                response.TotalRecords = await clients.CountAsync();
+                response.Data = _mapper.Map<IEnumerable<ClientResponseDto>>(items);
                 response.Message = ReplyMessage.MESSAGE_QUERY;
 
             }
@@ -79,20 +81,20 @@ namespace POS.Application.Services
             }
 
             return response;
-        }
 
-        public async Task<BaseResponse<ProviderByIdResponseDto>> GetProviderById(int providerId)
+        }
+        public async Task<BaseResponse<ClientByIdResponseDto>> GetClientById(int clientId)
         {
-            var response = new BaseResponse<ProviderByIdResponseDto>();
+            var response = new BaseResponse<ClientByIdResponseDto>();
 
             try
             {
-                var providers = await _unitOfWork.Provider.GetByIdAsync(providerId);
+                var clients = await _unitOfWork.Client.GetByIdAsync(clientId);
 
-                if (providers is not null)
+                if(clients is not null)
                 {
                     response.IsSuccess = true;
-                    response.Data = _mapper.Map<ProviderByIdResponseDto>(providers);
+                    response.Data = _mapper.Map<ClientByIdResponseDto>(clients);
                     response.Message = ReplyMessage.MESSAGE_QUERY;
                 }
                 else
@@ -100,7 +102,6 @@ namespace POS.Application.Services
                     response.IsSuccess = false;
                     response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
                 }
-
             }
             catch (Exception ex)
             {
@@ -109,19 +110,17 @@ namespace POS.Application.Services
                 WatchLogger.Log(ex.Message);
             }
 
- 
             return response;
         }
-
-        public async Task<BaseResponse<bool>> RegisterProvider(ProviderRequestDto requestDto)
+        public async Task<BaseResponse<bool>> RegisterClient(ClientRequestDto requestDto)
         {
             var response = new BaseResponse<bool>();
 
             try
             {
-                var provider = _mapper.Map<Provider>(requestDto);
+                var clients = _mapper.Map<Client>(requestDto);
 
-                response.Data = await _unitOfWork.Provider.RegisterAsync(provider);
+                response.Data = await _unitOfWork.Client.RegisterAsync(clients);
 
                 if (response.Data)
                 {
@@ -143,16 +142,15 @@ namespace POS.Application.Services
 
             return response;
         }
-
-        public async Task<BaseResponse<bool>> EdidtProviderAsync(int providerId, ProviderRequestDto requestDto)
+        public async Task<BaseResponse<bool>> EdidtClientAsync(int clientId, ClientRequestDto requestDto)
         {
             var response = new BaseResponse<bool>();
 
             try
             {
-                var providerById = await GetProviderById(providerId);
+                var clientById = await GetClientById(clientId);
 
-                if (providerById.Data is null)
+                if(clientById.Data is null)
                 {
                     response.IsSuccess = false;
                     response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
@@ -160,12 +158,12 @@ namespace POS.Application.Services
                     return response;
                 }
 
-                var provider = _mapper.Map<Provider>(requestDto);
-                provider.Id = providerId;
+                var client = _mapper.Map<Client>(requestDto);
+                client.Id = clientId;
 
-                response.Data = await _unitOfWork.Provider.EditAsync(provider);
+                response.Data = await _unitOfWork.Client.EditAsync(client);
 
-                if (response.Data)
+                if(response.Data)
                 {
                     response.IsSuccess = true;
                     response.Message = ReplyMessage.MESSAGE_UPDATE;
@@ -175,6 +173,7 @@ namespace POS.Application.Services
                     response.IsSuccess = false;
                     response.Message = ReplyMessage.MESSAGE_FAILED;
                 }
+
             }
             catch (Exception ex)
             {
@@ -182,20 +181,17 @@ namespace POS.Application.Services
                 response.Message = ReplyMessage.MESSAGE_EXCEPTION;
                 WatchLogger.Log(ex.Message);
             }
-
             return response;
-
         }
-
-        public async Task<BaseResponse<bool>> RemoveProviderAsync(int providerId)
+        public async Task<BaseResponse<bool>> RemoveClientAsync(int clientId)
         {
             var response = new BaseResponse<bool>();
 
             try
             {
-                var providerById = await GetProviderById(providerId);
+                var clientById = await GetClientById(clientId);
 
-                if (providerById.Data is null)
+                if (clientById.Data is null)
                 {
                     response.IsSuccess = false;
                     response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
@@ -203,7 +199,7 @@ namespace POS.Application.Services
                     return response;
                 }
 
-                response.Data = await _unitOfWork.Provider.RemoveAsync(providerId);
+                response.Data = await _unitOfWork.Client.RemoveAsync(clientId);
 
                 if (response.Data)
                 {
@@ -223,7 +219,6 @@ namespace POS.Application.Services
                 response.Message = ReplyMessage.MESSAGE_EXCEPTION;
                 WatchLogger.Log(ex.Message);
             }
-
             return response;
         }
     }

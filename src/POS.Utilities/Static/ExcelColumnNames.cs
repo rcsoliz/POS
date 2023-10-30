@@ -43,7 +43,6 @@
                 ("EMAIL", "Email"),
                 ("TIPO DE DOCUMENTO", "DocumentNumber"),
                 ("Nº DE DOCUMENTO", "DocumentNumber"),
-                ("Nº DE DOCUMENTO", "DocumentNumber"),
                 ("DIRECCIÓN", "Address"),
                 ("TELÉFONO", "Phone"),
                 ("FECHA DE CREACIÓN", "AuditCreateDate"),
@@ -64,6 +63,25 @@
                 ("ABREVIACIÓN", "Abbreviation"),
                 ("FECHA DE CREACIÓN", "AuditCreateDate"),
                 ("ESTADO", "StateDocumentType")
+            };
+
+            return columnsProperties;
+        }
+        #endregion
+
+        #region ColumnClients
+        public static List<(string ColumnName, string PropertyName)> GetColumnsClients()
+        {
+            var columnsProperties = new List<(string ColumnName, string PropertyName)>
+            {
+                ("NOMBRE CLIENTE", "Name"),
+                ("EMAIL", "Email"),
+                ("TIPO DE DOCUMENTO", "DocumentNumber"),
+                ("Nº DE DOCUMENTO", "DocumentType"),
+                ("DIRECCIÓN", "Address"),
+                ("TELÉFONO", "Phone"),
+                ("FECHA DE CREACIÓN", "AuditCreateDate"),
+                ("ESTADO", "StateProvider")
             };
 
             return columnsProperties;
