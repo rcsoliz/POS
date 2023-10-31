@@ -25,9 +25,9 @@ namespace POS.Application.Services
             _orderingQuery = orderingQuery;
         }
 
-        public async Task<BaseResponse<IEnumerable<ProviderResponseDto>>> ListProviders(BaseFiltersRequest filters)
+        public async Task<BaseResponse<IEnumerable<ProductResponseDto>>> ListProviders(BaseFiltersRequest filters)
         {
-            var response = new BaseResponse<IEnumerable<ProviderResponseDto>>();
+            var response = new BaseResponse<IEnumerable<ProductResponseDto>>();
 
             try
             {
@@ -67,7 +67,7 @@ namespace POS.Application.Services
 
                 response.IsSuccess = true;
                 response.TotalRecords = await providers.CountAsync();
-                response.Data = _mapper.Map<IEnumerable<ProviderResponseDto>>(items);
+                response.Data = _mapper.Map<IEnumerable<ProductResponseDto>>(items);
                 response.Message = ReplyMessage.MESSAGE_QUERY;
 
             }
@@ -144,7 +144,7 @@ namespace POS.Application.Services
             return response;
         }
 
-        public async Task<BaseResponse<bool>> EdidtProviderAsync(int providerId, ProviderRequestDto requestDto)
+        public async Task<BaseResponse<bool>> EditProviderAsync(int providerId, ProviderRequestDto requestDto)
         {
             var response = new BaseResponse<bool>();
 

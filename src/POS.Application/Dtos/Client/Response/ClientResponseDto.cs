@@ -11,6 +11,6 @@
         public string? Phone { get; set; }
         public DateTime AuditCreateDate { get; set; }
         public int State { get; set; }
-        public string? StateProvider { get; set; }
+        public string? StateClient { get; set; }
     }
 }

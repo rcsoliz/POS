@@ -1,6 +1,6 @@
 ﻿namespace POS.Application.Dtos.Provider.Response
 {
-    public class ProviderResponseDto
+    public class ProductResponseDto
     {
         public int ProviderId { get; set; }
         public string? Name { get; set; }

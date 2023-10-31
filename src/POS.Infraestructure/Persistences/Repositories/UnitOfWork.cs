@@ -14,6 +14,7 @@ namespace POS.Infraestructure.Persistences.Repositories
         public IGenericRepository<Provider> _provider = null!;
         public IGenericRepository<DocumentType> _documentType = null!;
         public IGenericRepository<Client> _client = null!;
+        public IGenericRepository<Product> _product= null!;
         public UnitOfWork(POSContext context, IConfiguration configuration)
         {
             _context = context;
@@ -23,6 +24,7 @@ namespace POS.Infraestructure.Persistences.Repositories
         public IGenericRepository<Provider> Provider => _provider ?? new GenericRepository<Provider>(_context);
         public IGenericRepository<DocumentType> DocumentType => _documentType ?? new GenericRepository<DocumentType>(_context);
         public IGenericRepository<Client> Client => _client ?? new GenericRepository<Client>(_context);
+        public IGenericRepository<Product> Product => _product ?? new GenericRepository<Product>(_context);
 
         public IUserRepository User => _user ?? new UserRepository(_context);
 

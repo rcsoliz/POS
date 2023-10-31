@@ -10,6 +10,8 @@ namespace POS.Infraestructure.Persistences.Interfaces
         IGenericRepository<Provider> Provider { get; }
         IGenericRepository<DocumentType> DocumentType { get; }
         IGenericRepository<Client> Client { get; }
+        IGenericRepository<Product> Product { get; }
+
         IUserRepository User { get; } 
 
         void SaveChages();

@@ -55,7 +55,7 @@ namespace POS.Api.Controllers
         [HttpPut("Edit/{providerId:int}")]
         public async Task<IActionResult> EditProvider(int providerId, [FromBody] ProviderRequestDto requestDto)
         {
-            var response = await _providerApplication.EdidtProviderAsync(providerId, requestDto);
+            var response = await _providerApplication.EditProviderAsync(providerId, requestDto);
             return Ok(response);
         }
 

@@ -88,5 +88,24 @@
         }
         #endregion
 
+        #region ColumnProducts
+        public static List<(string ColumnName, string PropertyName)> GetColumnsProduts()
+        {
+            var columnsProperties = new List<(string ColumnName, string PropertyName)>
+            {
+                ("NOMBRE PRODUCTO", "Name"),
+                ("CATEGORIA", "Category"),
+                ("PROVEEDOR", "provider"),
+                ("CANTIDAD", "Stock"),
+                ("PRECIO DE VENTA", "SellPrice"),
+                ("FECHA DE CREACIÓN", "AuditCreateDate"),
+                ("ESTADO", "StateProvider")
+            };
+
+            return columnsProperties;
+        }
+        #endregion
+
+
     }
 }

@@ -10,7 +10,7 @@ namespace POS.Application.Mappers
     {
         public ProviderMappinsProfile()
         {
-            CreateMap<Provider, ProviderResponseDto>()
+            CreateMap<Provider, ProductResponseDto>()
                 .ForMember(x => x.ProviderId, x => x.MapFrom(y => y.Id))
                 .ForMember(x => x.DocumentType, x => x.MapFrom(y => y.DocumentType.Abbreviation)) 
                 .ForMember(x => x.StateProvider,
