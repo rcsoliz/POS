@@ -111,7 +111,6 @@ D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.GeneratedMS
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.AssemblyInfoInputs.cache
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.AssemblyInfo.cs
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.csproj.CoreCompileInputs.cache
-D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.MvcApplicationPartsAssemblyInfo.cs
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.MvcApplicationPartsAssemblyInfo.cache
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\staticwebassets\msbuild.POS.Api.Microsoft.AspNetCore.StaticWebAssets.props
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\staticwebassets\msbuild.build.POS.Api.props

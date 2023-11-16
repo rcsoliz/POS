@@ -15,19 +15,17 @@ namespace POS.Infraestructure.Persistences.Contexts.Configuration
 
             builder.Property(e => e.Name).HasMaxLength(50);
 
-            builder.Property(e => e.SellPrice).HasColumnType("decimal(18, 2)");
-
             builder.HasOne(d => d.Category)
                 .WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Products__Catego__4F7CD00D");
 
-            builder.HasOne(d => d.Provider)
-                .WithMany(p => p.Products)
-                .HasForeignKey(d => d.ProviderId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Products__Provid__5070F446");
+            //builder.HasOne(d => d.Provider)
+            //    .WithMany(p => p.Products)
+            //    .HasForeignKey(d => d.ProviderId)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK__Products__Provid__5070F446");
         }
     }
 }

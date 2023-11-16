@@ -21,6 +21,10 @@ namespace POS.Application.Mappers
             .ForMember(x => x.ProviderId, x => x.MapFrom(y => y.Id))
             .ReverseMap();
 
+            CreateMap<Provider, ProviderSelectResponseDto>()
+                .ForMember(x => x.ProviderId, x => x.MapFrom(x => x.Id))
+                .ReverseMap();
+
             CreateMap<ProviderRequestDto, Provider>();
         }
     }

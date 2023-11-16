@@ -66,7 +66,7 @@ namespace POS.Application.Services
                 }
 
                 if (filters.Sort is null) filters.Sort = "Id";
-               var  items = await _orderingQuery.Ordering(filters, categories, !(bool)filters.Download!).ToListAsync();
+                   var  items = await _orderingQuery.Ordering(filters, categories, !(bool)filters.Download!).ToListAsync();
 
                 response.IsSuccess = true;
                 response.TotalRecords = await categories.CountAsync();

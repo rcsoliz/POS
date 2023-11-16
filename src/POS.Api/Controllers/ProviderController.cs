@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using POS.Application.Commons.Bases.Request;
 using POS.Application.Dtos.Provider.Request;
 using POS.Application.Interfaces;
+using POS.Application.Services;
 //using POS.Application.Services;
 using POS.Utilities.Static;
 
@@ -35,6 +36,13 @@ namespace POS.Api.Controllers
             }
 
 
+            return Ok(response);
+        }
+
+        [HttpGet("Select")]
+        public async Task<IActionResult> ListSelectProviders()
+        {
+            var response = await _providerApplication.ListSelectProvider();
             return Ok(response);
         }
 

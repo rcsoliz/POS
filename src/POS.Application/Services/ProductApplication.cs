@@ -34,7 +34,7 @@ namespace POS.Application.Services
             {
                 var products = _unitOfWork.Product
                     .GetAllQueryable()
-                    .Include(x => x.Provider)
+                  //  .Include(x => x.Provider)
                     .Include(x => x.Category)
                     .AsQueryable();
 
@@ -45,10 +45,10 @@ namespace POS.Application.Services
                         case 1:
                             products = products.Where(x => x.Name.Contains(filters.TextFilter)); break;
 
-                        //case 2:
-                        //    products = products.Where(x => x.Category.Name.Contains(filters.TextFilter)); break;
+                        case 2:
+                            products = products.Where(x => x.Category.Name.Contains(filters.TextFilter)); break;
 
-                        //case 3:
+                      //  case 3:
                         //    products = products.Where(x => x.Provider.Name.Contains(filters.TextFilter)); break;
                     }
                 }

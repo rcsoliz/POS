@@ -21,7 +21,6 @@ namespace POS.Api.Controllers
             _generateExcelApplication = generateExcelApplication;
         }
 
-        //[HttpPost]
         [HttpGet]
         public async Task<IActionResult> ListCategories([FromQuery] BaseFiltersRequest filters)
         {

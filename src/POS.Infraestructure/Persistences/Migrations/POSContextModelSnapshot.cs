@@ -184,9 +184,11 @@ namespace POS.Infraestructure.Persistences.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -200,11 +202,12 @@ namespace POS.Infraestructure.Persistences.Migrations
 
             modelBuilder.Entity("POS.Domain.Entities.Client", b =>
                 {
-                    b.Property<int>("ClientId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ClientId");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClientId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
                         .IsUnicode(false)
@@ -254,7 +257,7 @@ namespace POS.Infraestructure.Persistences.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.HasKey("ClientId");
+                    b.HasKey("Id");
 
                     b.HasIndex("DocumentTypeId");
 
@@ -424,11 +427,12 @@ namespace POS.Infraestructure.Persistences.Migrations
 
             modelBuilder.Entity("POS.Domain.Entities.Product", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("ProductId");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("AuditCreateDate")
                         .HasColumnType("datetime2");
@@ -452,34 +456,53 @@ namespace POS.Infraestructure.Persistences.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Code")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("ProviderId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SellPrice")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<int>("Stock")
+                    b.Property<int>("StockMax")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductId");
+                    b.Property<int>("StockMin")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("ProviderId");
-
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("POS.Domain.Entities.ProductStock", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WarehouseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CurrentStock")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("PurchasePrice")
+                        .HasPrecision(10, 2)
+                        .HasColumnType("decimal(10,2)");
+
+                    b.HasKey("ProductId", "WarehouseId");
+
+                    b.HasIndex("WarehouseId");
+
+                    b.ToTable("ProductStocks");
                 });
 
             modelBuilder.Entity("POS.Domain.Entities.Provider", b =>
@@ -911,6 +934,45 @@ namespace POS.Infraestructure.Persistences.Migrations
                     b.ToTable("UsersBranchOffices");
                 });
 
+            modelBuilder.Entity("POS.Domain.Entities.Warehouse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("WarehouseId");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("AuditCreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("AuditCreateUser")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("AuditDeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("AuditDeleteUser")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("AuditUpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("AuditUpdateUser")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
+
+                    b.Property<int>("State")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Warehouses");
+                });
+
             modelBuilder.Entity("POS.Domain.Entities.BranchOffice", b =>
                 {
                     b.HasOne("POS.Domain.Entities.Business", "Business")
@@ -988,15 +1050,26 @@ namespace POS.Infraestructure.Persistences.Migrations
                         .IsRequired()
                         .HasConstraintName("FK__Products__Catego__4F7CD00D");
 
-                    b.HasOne("POS.Domain.Entities.Provider", "Provider")
-                        .WithMany("Products")
-                        .HasForeignKey("ProviderId")
-                        .IsRequired()
-                        .HasConstraintName("FK__Products__Provid__5070F446");
-
                     b.Navigation("Category");
+                });
 
-                    b.Navigation("Provider");
+            modelBuilder.Entity("POS.Domain.Entities.ProductStock", b =>
+                {
+                    b.HasOne("POS.Domain.Entities.Product", "Product")
+                        .WithMany("ProductStocks")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("POS.Domain.Entities.Warehouse", "Warehouse")
+                        .WithMany("ProductStocks")
+                        .HasForeignKey("WarehouseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("POS.Domain.Entities.Provider", b =>
@@ -1024,9 +1097,8 @@ namespace POS.Infraestructure.Persistences.Migrations
             modelBuilder.Entity("POS.Domain.Entities.Purcharse", b =>
                 {
                     b.HasOne("POS.Domain.Entities.Provider", "Provider")
-                        .WithMany("Purcharses")
-                        .HasForeignKey("ProviderId")
-                        .HasConstraintName("FK__Purcharse__Provi__5535A963");
+                        .WithMany()
+                        .HasForeignKey("ProviderId");
 
                     b.HasOne("POS.Domain.Entities.User", "User")
                         .WithMany("Purcharses")
@@ -1041,9 +1113,8 @@ namespace POS.Infraestructure.Persistences.Migrations
             modelBuilder.Entity("POS.Domain.Entities.PurcharseDetail", b =>
                 {
                     b.HasOne("POS.Domain.Entities.Product", "Product")
-                        .WithMany("PurcharseDetails")
-                        .HasForeignKey("ProductId")
-                        .HasConstraintName("FK__Purcharse__Produ__534D60F1");
+                        .WithMany()
+                        .HasForeignKey("ProductId");
 
                     b.HasOne("POS.Domain.Entities.Purcharse", "Purcharse")
                         .WithMany("PurcharseDetails")
@@ -1075,9 +1146,8 @@ namespace POS.Infraestructure.Persistences.Migrations
             modelBuilder.Entity("POS.Domain.Entities.SaleDetail", b =>
                 {
                     b.HasOne("POS.Domain.Entities.Product", "Product")
-                        .WithMany("SaleDetails")
-                        .HasForeignKey("ProductId")
-                        .HasConstraintName("FK__SaleDetai__Produ__571DF1D5");
+                        .WithMany()
+                        .HasForeignKey("ProductId");
 
                     b.HasOne("POS.Domain.Entities.Sale", "Sale")
                         .WithMany("SaleDetails")
@@ -1178,16 +1248,7 @@ namespace POS.Infraestructure.Persistences.Migrations
 
             modelBuilder.Entity("POS.Domain.Entities.Product", b =>
                 {
-                    b.Navigation("PurcharseDetails");
-
-                    b.Navigation("SaleDetails");
-                });
-
-            modelBuilder.Entity("POS.Domain.Entities.Provider", b =>
-                {
-                    b.Navigation("Products");
-
-                    b.Navigation("Purcharses");
+                    b.Navigation("ProductStocks");
                 });
 
             modelBuilder.Entity("POS.Domain.Entities.Province", b =>
@@ -1221,6 +1282,11 @@ namespace POS.Infraestructure.Persistences.Migrations
                     b.Navigation("UserRoles");
 
                     b.Navigation("UsersBranchOffices");
+                });
+
+            modelBuilder.Entity("POS.Domain.Entities.Warehouse", b =>
+                {
+                    b.Navigation("ProductStocks");
                 });
 #pragma warning restore 612, 618
         }

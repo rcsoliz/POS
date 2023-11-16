@@ -81,6 +81,31 @@ namespace POS.Application.Services
             return response;
         }
 
+        public async Task<BaseResponse<IEnumerable<ProviderSelectResponseDto>>> ListSelectProvider()
+        {
+            var response = new BaseResponse<IEnumerable<ProviderSelectResponseDto>>();
+
+            try
+            {
+                var providers = await _unitOfWork.Provider.GetSelctAsync();
+
+                if(providers is not null)
+                {
+                    response.Data = _mapper.Map<IEnumerable<ProviderSelectResponseDto>>(providers);
+                    response.IsSuccess = true;
+                    response.Message = ReplyMessage.MESSAGE_QUERY;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ReplyMessage.MESSAGE_EXCEPTION;
+                WatchLogger.Log(ex.Message);
+            }
+
+            return response;
+        }
+
         public async Task<BaseResponse<ProviderByIdResponseDto>> GetProviderById(int providerId)
         {
             var response = new BaseResponse<ProviderByIdResponseDto>();
@@ -226,5 +251,7 @@ namespace POS.Application.Services
 
             return response;
         }
+
+ 
     }
 }
