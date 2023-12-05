@@ -11,9 +11,9 @@ namespace POS.Application.Validators.Product
                .NotNull().WithMessage("El campo nombre no puede ser nulo")
                .NotEmpty().WithMessage("El campo nombre no puede ser vacio.");
 
-            RuleFor(x => x.Stock)
-                .NotNull().WithMessage("El campo Stock no puede ser nulo")
-                .NotEmpty().WithMessage("El campo Stock no puede ser vacio.");
+            //RuleFor(x => x.Stock)
+            //    .NotNull().WithMessage("El campo Stock no puede ser nulo")
+            //    .NotEmpty().WithMessage("El campo Stock no puede ser vacio.");
         }
     }
 }

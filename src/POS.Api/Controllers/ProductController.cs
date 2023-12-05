@@ -44,7 +44,7 @@ namespace POS.Api.Controllers
         }
 
         [HttpPost("Register")]
-        public async Task<IActionResult> RegisterProduct([FromBody] ProductRequestDto requestDto)
+        public async Task<IActionResult> RegisterProduct([FromForm] ProductRequestDto requestDto)
         {
             var response = await _productApplication.RegisterProduct(requestDto);
             return Ok(response);

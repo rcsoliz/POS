@@ -18,12 +18,13 @@ namespace POS.Application.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IOrderingQuery _orderingQuery;
-
-        public ProductApplication(IUnitOfWork unitOfWork, IMapper mapper, IOrderingQuery orderingQuery)
+        private readonly IFileStorageLocalApplication _fileStorage;
+        public ProductApplication(IUnitOfWork unitOfWork, IMapper mapper, IOrderingQuery orderingQuery, IFileStorageLocalApplication fileStorage)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _orderingQuery = orderingQuery;
+            _fileStorage = fileStorage;
         }
 
         public async Task<BaseResponse<IEnumerable<ProductResponseDto>>> ListProducts(BaseFiltersRequest filters)
@@ -117,31 +118,53 @@ namespace POS.Application.Services
         {
             var response = new BaseResponse<bool>();
 
+            using var transacction = _unitOfWork.BeginTransaction();
+
             try
             {
                 var product = _mapper.Map<Product>(requestDto);
-
-                response.Data = await _unitOfWork.Product.RegisterAsync(product);
-
-                if (response.Data)
+                if(requestDto.Image is not null)
                 {
-                    response.IsSuccess = true;
-                    response.Message = ReplyMessage.MESSAGE_SAVE;
+                    product.Image = await _fileStorage.SaveFile(AzureContainers.PRODUCTS, requestDto.Image);
                 }
-                else
-                {
-                    response.IsSuccess = false;
-                    response.Message = ReplyMessage.MESSAGE_FAILED;
-                }
+                await _unitOfWork.Product.RegisterAsync(product);
+                int productId = product.Id;
+                var warehouses = await _unitOfWork.WareHouse.GetAllAsync();
+
+                await RegisterProductStockAsync(warehouses, productId);
+
+                transacction.Commit();
+                response.IsSuccess = true;
+                response.Message = ReplyMessage.MESSAGE_SAVE;
+
             }
             catch (Exception ex)
             {
+                transacction.Rollback();
                 response.IsSuccess = false;
                 response.Message = ReplyMessage.MESSAGE_EXCEPTION;
                 WatchLogger.Log(ex.Message);
             }
 
             return response;
+        }
+
+        private async Task RegisterProductStockAsync(
+            IEnumerable<Warehouse> warehouses, 
+            int productId)
+        {
+            foreach (var warehouse in warehouses)
+            {
+                var newProductStock = new ProductStock
+                {
+                    ProductId = productId,
+                    WarehouseId = warehouse.Id,
+                    CurrentStock = 0,
+                    PurchasePrice = 0
+                };
+
+                await _unitOfWork.ProductStock.RegisterProductStock(newProductStock);
+            }
         }
 
         public async Task<BaseResponse<bool>> EditProductAsync(int productId, ProductRequestDto requestDto)

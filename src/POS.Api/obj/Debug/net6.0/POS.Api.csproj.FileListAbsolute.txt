@@ -126,3 +126,5 @@ D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\refint\POS.Api.dll
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.pdb
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.genruntimeconfig.cache
 D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\ref\POS.Api.dll
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\bin\Debug\net6.0\POS.Api.staticwebassets.runtime.json
+D:\CNET\BackEnd\Sistema POS\POS\src\POS.Api\obj\Debug\net6.0\POS.Api.MvcApplicationPartsAssemblyInfo.cs
