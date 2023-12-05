@@ -22,6 +22,8 @@ builder.Services.AddSwagger(); // ENABLE AddSwagger EXTENSISONS SwaggerExtension
 
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("GoogleSettings"));
 
+builder.Services.AddHttpContextAccessor();//brinda acceso al context HTTP en cualquier para de nuestra aplicación
+
 //configuration Cors
 builder.Services.AddCors(options =>
 {

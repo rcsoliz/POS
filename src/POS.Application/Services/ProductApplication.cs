@@ -34,7 +34,6 @@ namespace POS.Application.Services
             {
                 var products = _unitOfWork.Product
                     .GetAllQueryable()
-                  //  .Include(x => x.Provider)
                     .Include(x => x.Category)
                     .AsQueryable();
 
@@ -43,13 +42,10 @@ namespace POS.Application.Services
                     switch(filters.NumFilter) 
                     {
                         case 1:
-                            products = products.Where(x => x.Name.Contains(filters.TextFilter)); break;
+                            products = products.Where(x => x.Code.Contains(filters.TextFilter)); break;
 
                         case 2:
-                            products = products.Where(x => x.Category.Name.Contains(filters.TextFilter)); break;
-
-                      //  case 3:
-                        //    products = products.Where(x => x.Provider.Name.Contains(filters.TextFilter)); break;
+                            products = products.Where(x => x.Name.Contains(filters.TextFilter)); break;
                     }
                 }
 
@@ -58,7 +54,8 @@ namespace POS.Application.Services
                     products = products.Where(x => x.State.Equals(filters.StateFilter));
                 }
 
-                if(filters.StartDate is not null && filters.EndDate is not null)
+                // if(filters.StartDate is not null && filters.EndDate is not null)
+                if (!string.IsNullOrEmpty(filters.StartDate) && !string.IsNullOrEmpty(filters.EndDate))
                 {
                     products = products.Where(x =>
                         x.AuditCreateDate >= Convert.ToDateTime(filters.StartDate) &&
@@ -103,6 +100,7 @@ namespace POS.Application.Services
                 {
                     response.IsSuccess = false;
                     response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
+                    return response;
                 }
             }
             catch (Exception ex)

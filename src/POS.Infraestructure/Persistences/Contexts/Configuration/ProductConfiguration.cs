@@ -14,6 +14,7 @@ namespace POS.Infraestructure.Persistences.Contexts.Configuration
                 .HasColumnName("ProductId");
 
             builder.Property(e => e.Name).HasMaxLength(50);
+            builder.Property(e => e.UnitPriceSale).HasColumnType("decimal(10,2)");
 
             builder.HasOne(d => d.Category)
                 .WithMany(p => p.Products)

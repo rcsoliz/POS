@@ -28,6 +28,7 @@ namespace POS.Application.Extensions
 
 
             services.AddTransient<IOrderingQuery, OrderingQuery>();
+            services.AddTransient<IFileStorageLocalApplication, FileStorageLocalApplication>();
 
             services.AddScoped<IGenerateExcelApplication, GenerateExcelApplication>();
 

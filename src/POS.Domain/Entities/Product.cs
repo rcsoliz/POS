@@ -14,6 +14,7 @@
         public int StockMin { get; set; }
         public int StockMax { get; set; }
         public string? Image { get; set; } = null!;
+        public decimal UnitPriceSale { get; set; }
         public int CategoryId { get; set; } 
  
         public virtual Category Category { get; set; } = null!;

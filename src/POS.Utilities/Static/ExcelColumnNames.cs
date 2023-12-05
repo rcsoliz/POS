@@ -93,13 +93,14 @@
         {
             var columnsProperties = new List<(string ColumnName, string PropertyName)>
             {
+                ("CÓDIGO", "Code"),
                 ("NOMBRE PRODUCTO", "Name"),
+                ("STOCK MÍNIMO", "StockMin"),
+                ("STOCK MÁXIMO", "StockMax"),
+                ("PRECIO DE VENTA", "UnitSalePrice"),
                 ("CATEGORIA", "Category"),
-                ("PROVEEDOR", "provider"),
-                ("CANTIDAD", "Stock"),
-                ("PRECIO DE VENTA", "SellPrice"),
                 ("FECHA DE CREACIÓN", "AuditCreateDate"),
-                ("ESTADO", "StateProvider")
+                ("ESTADO", "StateProduct")
             };
 
             return columnsProperties;
