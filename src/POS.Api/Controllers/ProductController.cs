@@ -51,16 +51,16 @@ namespace POS.Api.Controllers
         }
 
         [HttpPut("Edit/{productId:int}")]
-        public async Task<IActionResult> EditProduct(int productId, [FromBody] ProductRequestDto requestDto)
+        public async Task<IActionResult> EditProduct(int productId, [FromForm] ProductRequestDto requestDto)
     {
-        var response = await _productApplication.EditProductAsync(productId, requestDto);
+        var response = await _productApplication.EditProduct(productId, requestDto);
         return Ok(response);
     }
 
     [HttpPut("Remove/{productId:int}")]
         public async Task<IActionResult> RemoveProduct(int productId)
         {
-            var response = await _productApplication.RemoveProductAsync(productId);
+            var response = await _productApplication.RemoveProduct(productId);
             return Ok(response);
         }
     }

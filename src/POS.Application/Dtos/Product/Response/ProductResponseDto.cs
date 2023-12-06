@@ -8,7 +8,7 @@
         public int StockMin { get; set; }
         public int StockMax{ get; set; }
         public string? Image { get; set; }
-        public decimal UnitSalePrice { get; set; }
+        public decimal UnitPriceSale { get; set; }
         public string Category { get; set; } = string.Empty;
         public DateTime AuditCreateDate { get; set; }
         public int State { get; set; }

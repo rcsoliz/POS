@@ -1,8 +1,12 @@
 {
   "Files": [
     {
-      "Id": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Api\\wwwroot\\products\\65e25d91-b782-46d0-acb6-3d6ed2ff7c6d.jpeg",
-      "PackagePath": "staticwebassets\\products\\65e25d91-b782-46d0-acb6-3d6ed2ff7c6d.jpeg"
+      "Id": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Api\\wwwroot\\products\\17628bc9-436a-4e2e-91dd-9a5ad548bba3.jpeg",
+      "PackagePath": "staticwebassets\\products\\17628bc9-436a-4e2e-91dd-9a5ad548bba3.jpeg"
+    },
+    {
+      "Id": "D:\\CNET\\BackEnd\\Sistema POS\\POS\\src\\POS.Api\\wwwroot\\products\\251980ab-102d-4322-aa42-b879b7281eb5.jpeg",
+      "PackagePath": "staticwebassets\\products\\251980ab-102d-4322-aa42-b879b7281eb5.jpeg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.POS.Api.Microsoft.AspNetCore.StaticWebAssets.props",

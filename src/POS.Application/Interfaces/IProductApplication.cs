@@ -11,7 +11,7 @@ namespace POS.Application.Interfaces
         Task<BaseResponse<ProductByIdResponseDto>> GetProductById(int productId);
 
         Task<BaseResponse<bool>> RegisterProduct(ProductRequestDto requestDto);
-        Task<BaseResponse<bool>> EditProductAsync(int productId, ProductRequestDto requestDto);
-        Task<BaseResponse<bool>> RemoveProductAsync(int productId);
+        Task<BaseResponse<bool>> EditProduct(int productId, ProductRequestDto requestDto);
+        Task<BaseResponse<bool>> RemoveProduct(int productId);
     }
 }

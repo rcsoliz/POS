@@ -167,37 +167,28 @@ namespace POS.Application.Services
             }
         }
 
-        public async Task<BaseResponse<bool>> EditProductAsync(int productId, ProductRequestDto requestDto)
+        public async Task<BaseResponse<bool>> EditProduct(int productId, ProductRequestDto requestDto)
         {
             var response = new BaseResponse<bool>();
 
             try
             {
-                var productById = await GetProductById(productId);
-
-                if (productById.Data is null)
-                {
-                    response.IsSuccess = false;
-                    response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
-
-                    return response;
-                }
-
+                var pathImage = await GetProductById(productId);
                 var product = _mapper.Map<Product>(requestDto);
+
+                if (requestDto.Image is not null)
+                    product.Image = await _fileStorage.EditFile(AzureContainers.PRODUCTS,
+                        requestDto.Image,
+                        pathImage.Data!.Image!);
+
+                if (requestDto.Image is null)
+                    product.Image = pathImage.Data!.Image;
+
                 product.Id = productId;
+                await _unitOfWork.Product.EditAsync(product);
 
-                response.Data = await _unitOfWork.Product.EditAsync(product);
-
-                if (response.Data)
-                {
-                    response.IsSuccess = true;
-                    response.Message = ReplyMessage.MESSAGE_UPDATE;
-                }
-                else
-                {
-                    response.IsSuccess = false;
-                    response.Message = ReplyMessage.MESSAGE_FAILED;
-                }
+                response.IsSuccess = true;
+                response.Message = ReplyMessage.MESSAGE_UPDATE;
             }
             catch (Exception ex)
             {
@@ -209,15 +200,15 @@ namespace POS.Application.Services
             return response;
         }
 
-        public async Task<BaseResponse<bool>> RemoveProductAsync(int productId)
+        public async Task<BaseResponse<bool>> RemoveProduct(int productId)
         {
             var response = new BaseResponse<bool>();
 
             try
             {
-                var productById = await GetProductById(productId);
+                var product = await GetProductById(productId);
 
-                if (productById.Data is null)
+                if (product.Data is null)
                 {
                     response.IsSuccess = false;
                     response.Message = ReplyMessage.MESSAGE_QUERY_EMPTY;
@@ -226,17 +217,17 @@ namespace POS.Application.Services
                 }
 
                 response.Data = await _unitOfWork.Product.RemoveAsync(productId);
+                await _fileStorage.RemoveFile(product.Data!.Image!, AzureContainers.PRODUCTS);
 
-                if (response.Data)
-                {
-                    response.IsSuccess = true;
-                    response.Message = ReplyMessage.MESSAGE_DELETE;
-                }
-                else
+                if (!response.Data)
                 {
                     response.IsSuccess = false;
-                    response.Message = ReplyMessage.MESSAGE_DELETE;
+                    response.Message = ReplyMessage.MESSAGE_FAILED;
+                    return response;
                 }
+                
+                response.IsSuccess = true;
+                response.Message = ReplyMessage.MESSAGE_DELETE;
 
             }
             catch (Exception ex)
@@ -248,5 +239,7 @@ namespace POS.Application.Services
 
             return response;
         }
+
+ 
     }
 }
